@@ -33,6 +33,7 @@ Similarly for the output layer:
 Z2 = A1.dot(W2)
 A2 = sigmoid(Z2)
 return A2
+```
 
 ### 5. Weight Initialization
 Next, we initialize the weights. I named this function as generate_wt.
@@ -45,6 +46,72 @@ We need initial weights before training starts, so we randomly initialize the va
 ### 6. Loss Function
 After initializing the weights, we now take care of the loss.
 I used Mean Squared Error:
+loss = np.square(out - Y)
+This is used to calculate the difference between predicted output and actual output.
+
+### 7. Backpropagation
+Then calculate the mean. Next is back propagation.
+I named this function as back_prop and parameters are (X, Y, W1, W2, alpha):
+
+Assign the forward propagation output to compute predictions for hidden layer and output layer.
+
+For every error that occurs in output layer, define a variable d2 to calculate that:
+d2 = (A2 - out) * derivative
+The variable d1 is used to calculate the error for hidden layer.
+
+For gradient calculation and updating the weights:
+W1 = old_weight - (learning_rate * W1_adj)
+W2 = old_weight - (learning_rate * W2_adj)
+
+### 8. Training
+Training our dataset: function is named as train with parameters (X, Y, W1, W2, alpha, epoch).
+
+Alpha is the learning rate and epoch is the iteration count.
+
+We calculate accuracy and loss for each epoch and append it to a list.
+
+### 9. Prediction
+Next is the prediction function — it is named as predict(X, W1, W2):
+
+Passes the input X to get the output.
+
+Loops through the output to find the index of largest value:
+
+K = 0 → print letter A
+
+K = 1 → print letter B
+
+K = 2 → print letter C
+
+Reshape the input into (5, 6).
+
+10. Initializing Weights
+Next initialize the weights:
+W1 = generate_wt(30, 5)
+W2 = generate_wt(5, 3)
+
+
+### 11. Final Step
+The final step is passing the arguments to train dataset, which are:
+
+X label
+
+Y label
+
+Weights
+
+Learning rate
+
+Number of epochs
+
+Next:
+
+Plot the graph between the loss and accuracy to find accuracy.
+
+Plot the graph between loss and epochs to find the loss.
+
+At last, use the predict function to get the result:
+predict(X[2], W1, W2)
 
 
 
