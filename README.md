@@ -34,3 +34,19 @@ Z2 = A1.dot(W2)
 A2 = sigmoid(Z2)
 return A2
 
+### 5. Weight Initialization
+Next, we initialize the weights. I named this function as generate_wt.
+Inside this function:
+
+Create an empty list l.
+
+We need initial weights before training starts, so we randomly initialize the values with np.random.randn() and append this to the list.
+
+### 6. Loss Function
+After initializing the weights, we now take care of the loss.
+I used Mean Squared Error:
+
+
+
+
+
