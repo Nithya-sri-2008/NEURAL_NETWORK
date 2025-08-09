@@ -46,22 +46,27 @@ We need initial weights before training starts, so we randomly initialize the va
 ### 6. Loss Function
 After initializing the weights, we now take care of the loss.
 I used Mean Squared Error:
+```python
 loss = np.square(out - Y)
 This is used to calculate the difference between predicted output and actual output.
+```
 
 ### 7. Backpropagation
 Then calculate the mean. Next is back propagation.
 I named this function as back_prop and parameters are (X, Y, W1, W2, alpha):
 
-Assign the forward propagation output to compute predictions for hidden layer and output layer.
-
-For every error that occurs in output layer, define a variable d2 to calculate that:
+- Assign the forward propagation output to compute predictions for hidden layer and output layer.
+- For every error that occurs in output layer, define a variable d2 to calculate that:
+```python
 d2 = (A2 - out) * derivative
+```
 The variable d1 is used to calculate the error for hidden layer.
 
-For gradient calculation and updating the weights:
+- For gradient calculation and updating the weights:
+```python
 W1 = old_weight - (learning_rate * W1_adj)
 W2 = old_weight - (learning_rate * W2_adj)
+```
 
 ### 8. Training
 Training our dataset: function is named as train with parameters (X, Y, W1, W2, alpha, epoch).
@@ -87,31 +92,29 @@ Reshape the input into (5, 6).
 
 10. Initializing Weights
 Next initialize the weights:
+```python
 W1 = generate_wt(30, 5)
 W2 = generate_wt(5, 3)
+```
 
 
 ### 11. Final Step
 The final step is passing the arguments to train dataset, which are:
 
-X label
-
-Y label
-
-Weights
-
-Learning rate
-
-Number of epochs
+- X label
+- Y label
+- Weights
+- Learning rate
+- Number of epochs
 
 Next:
-
-Plot the graph between the loss and accuracy to find accuracy.
-
-Plot the graph between loss and epochs to find the loss.
-
-At last, use the predict function to get the result:
+- Plot the graph between the loss and accuracy to find accuracy.
+- Plot the graph between loss and epochs to find the loss.
+- At last, use the predict function to get the result:
+  
+```python
 predict(X[2], W1, W2)
+```
 
 
 
